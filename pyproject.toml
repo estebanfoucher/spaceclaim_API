@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "spaceclaim_API"
+version = "0.1.0"
+description = "Stub Python API for SpaceClaim Scripting V15: signatures only, no behavior."
+readme = "README.md"
+requires-python = ">=3.8"
+authors = [
+    { name = "SpaceClaim API Stub Generator" }
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.optional-dependencies]
+dev = [
+    "beautifulsoup4",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["spaceclaim_API*"]
+
+

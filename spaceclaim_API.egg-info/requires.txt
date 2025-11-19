@@ -1,0 +1,3 @@
+
+[dev]
+beautifulsoup4
