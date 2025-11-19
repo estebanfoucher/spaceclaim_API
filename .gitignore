@@ -1,0 +1,4 @@
+__pycache__/*
+.venv/*
+
+spaceclaim_API.egg-info/*
