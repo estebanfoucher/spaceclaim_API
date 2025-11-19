@@ -22,6 +22,23 @@ from typing import Iterable, List, Optional, Sequence
 # ---------------------------------------------------------------------------
 
 
+class Point2D:
+    """Represents a 2D point, typically used in sketch operations."""
+
+    def __init__(self, x: float = 0.0, y: float = 0.0) -> None:
+        """
+        Initializes a new 2D point.
+
+        Parameters
+        ----------
+        x : float
+            X coordinate in sketch space.
+        y : float
+            Y coordinate in sketch space.
+        """
+        pass
+
+
 class Face:
     """Represents a face of a body in the SpaceClaim model."""
 
@@ -65,6 +82,29 @@ class Part:
     def GetAllBodies(self) -> List[Body]:
         """Returns all bodies contained in this part."""
         pass
+
+
+class Document:
+    """
+    Represents a SpaceClaim document.
+
+    This is a minimal stub so that functions like DocumentOpen can return a
+    usable object in type-checkers and IDEs.
+    """
+
+    def GetRootPart(self) -> Part:
+        """
+        Returns the root part of this document.
+        """
+        pass
+
+
+class DesignCurve:
+    """
+    Represents a sketch or model curve entity (for example, from SketchCircle).
+    """
+
+    pass
 
 
 # ---------------------------------------------------------------------------
@@ -271,6 +311,76 @@ def GetRootPart() -> Part:
     pass
 
 
+def DocumentOpen(path: str) -> Document:
+    """
+    Opens a document from the specified path (stub only).
+
+    Parameters
+    ----------
+    path : str
+        File system path to the document.
+
+    Returns
+    -------
+    Document
+        A stub representing the opened document.
+    """
+    pass
+
+
+def SketchCircle(center: Point2D, radius: float) -> DesignCurve:
+    """
+    Creates a circle in the current sketch (stub only).
+
+    Parameters
+    ----------
+    center : Point2D
+        Center point of the circle in sketch coordinates.
+    radius : float
+        Radius of the circle.
+
+    Returns
+    -------
+    DesignCurve
+        A stub representing the created circle curve.
+    """
+    pass
+
+
+def Delete(*objects) -> None:
+    """
+    Deletes the specified objects (stub only).
+
+    This mirrors the global Delete helper available in the SpaceClaim
+    scripting environment.
+
+    Parameters
+    ----------
+    *objects
+        Any SpaceClaim entities to delete (faces, bodies, etc.).
+    """
+    pass
+
+
+# ---------------------------------------------------------------------------
+# Power selection related options (not present in local HTML docs, but used
+# in typical scripting examples).
+# ---------------------------------------------------------------------------
+
+
+class PowerSelectionOptions(CommandOptions):
+    """
+    Options for power selection operations.
+
+    Note: This type is not present in the bundled HTML docs, but is added as
+    a common scripting helper used in examples (for IDE friendliness only).
+    """
+
+    def __init__(self, *args, **kwargs) -> None:
+        """Initializes PowerSelectionOptions (stub)."""
+        pass
+
+
 # Re-export generated namespace root if available so users can do:
 #   from spaceclaim_API import SpaceClaim
 try:  # pragma: no cover - optional convenience
@@ -281,10 +391,13 @@ except Exception:  # pragma: no cover
 
 __all__ = [
     # Geometry / model
+    "Point2D",
     "Face",
     "PointOnFace",
     "Body",
     "Part",
+    "Document",
+    "DesignCurve",
     # Selection helpers
     "Selection",
     "NamedSelection",
@@ -295,9 +408,11 @@ __all__ = [
     "CurveGaps",
     # Top-level helpers
     "GetRootPart",
+    "DocumentOpen",
+    "SketchCircle",
+    "Delete",
+    # Extra options
+    "PowerSelectionOptions",
     # Namespaces
     "SpaceClaim",
 ]
-
-
-

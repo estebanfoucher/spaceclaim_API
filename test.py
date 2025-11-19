@@ -5,9 +5,7 @@
 # center point of inlet is located at -10mm,5mm,-7.5mm
 # center point of outlet is located at 15mm,20mm,-7.5mm
 
-from spaceclaim_API import GetRootPart
-from spaceclaim_API import NamedSelection
-from spaceclaim_API import Selection
+from spaceclaim_API import GetRootPart, NamedSelection
 
 part = GetRootPart()
 bodies = part.GetAllBodies()
@@ -49,4 +47,5 @@ result = NamedSelection.Rename("Group1", "wall")
 result = NamedSelection.Create(Selection.Create(bodies[0]), Selection())
 result = NamedSelection.Rename("Group1", "fluid")
 
+Delete.Execute(remFaces)
 #########################################################################################
