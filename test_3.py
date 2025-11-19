@@ -1,4 +1,4 @@
-log_path = "spaceclaim_globals.log"  # change to an absolute path if you want
+log_path = "spaceclaim_globals.log"  # change to absolute path if you like
 
 def list_methods(obj):
     methods = []
@@ -23,9 +23,9 @@ with open(log_path, "w") as f:
             continue
         if not meths:
             continue
-        f.write(f"{name}:\n")
+        f.write(name + ":\n")
         for m in sorted(meths):
-            f.write(f"  - {m}\n")
+            f.write("  - " + m + "\n")
         f.write("\n")
 
-print("Wrote globals/methods to", log_path)
+print("Wrote globals/methods to " + log_path)
