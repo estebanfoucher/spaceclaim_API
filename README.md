@@ -1,0 +1,52 @@
+## spaceclaim_API
+
+Stub-only Python bindings for the SpaceClaim Scripting API (V15).
+
+This package is intended **only** for use inside normal Python IDEs so that
+scripts written for SpaceClaim's internal Python environment can:
+
+- import the API (`from spaceclaim_API import *`, etc.)
+- access classes, methods, fields, and properties without linter errors
+- benefit from basic autocompletion
+
+All functions and methods are empty and do not perform any real work.
+
+### Layout
+
+- `spaceclaim_API/__init__.py`: top-level helpers and a few hand-written core
+  stubs (`GetRootPart`, `NamedSelection`, `Selection`, etc.).
+- `spaceclaim_API/_generated/`: large set of auto-generated stubs mirroring the
+  namespaces in the HTML documentation (e.g.
+  `SpaceClaim.Api.V15.Scripting.Commands`).
+- `tools/generate_stubs_from_docs.py`: script that scans `html/` and regenerates
+  the `_generated` stubs.
+
+### Regenerating stubs
+
+From the project root:
+
+```bash
+python tools/generate_stubs_from_docs.py
+```
+
+This will wipe and recreate everything under `spaceclaim_API/_generated`.
+
+### Installing locally
+
+Editable install (recommended while iterating):
+
+```bash
+pip install -e .
+```
+
+Then, in your scripts:
+
+```python
+from spaceclaim_API import GetRootPart, NamedSelection, Selection
+```
+
+Remember that this package is **not** a real SpaceClaim binding; it only
+provides names and signatures for development-time tooling.
+
+
+# spaceclaim_API
